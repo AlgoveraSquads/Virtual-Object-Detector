@@ -115,9 +115,9 @@ def detect_page():
             data = json.loads(request.data)
             image_data = data['image']
             
-            base64ToArray(image_data)
+            img_array = base64ToArray(image_data)
             d = detector('../resnet50_coco_best_v2.1.0.h5')
-            res = d.detect(image_data, output_image_path='./data/result.jpg', image_callback=image_callback)
+            res = d.detect(img_array, output_image_path='./data/result.jpg', image_callback=image_callback)
             
             return res
     
